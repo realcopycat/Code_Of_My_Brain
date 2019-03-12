@@ -2,7 +2,7 @@ from neo4j import GraphDatabase
 
 driver = GraphDatabase.driver("bolt://MyBrain:7687",auth=("copycat","0311"))
 
-def writeInMemory(Memory,count):
+def writeInMyMemory(Memory,count):
 
     #execute Cypher script
     Memory.run("MATCH (a:Person {name:'Me'})-[r1:adore {How_many_times_do_I_miss_you_every_day: $number1}]->(b:Girl {Favorite_flower:babysbreath})"
@@ -18,7 +18,7 @@ while(when_I_wake_up_at_6_am):
         with driver.session() as session:
 
             try:
-                session.write_transaction(writeInMemory,count)
+                session.write_transaction(writeInMyMemory,count)
             except:
                 print("I wish I don't know you.")
 
@@ -27,4 +27,5 @@ while(when_I_wake_up_at_6_am):
 
     elif you_feel_same_with_me:
 
+        import math
         count=exp(count)
