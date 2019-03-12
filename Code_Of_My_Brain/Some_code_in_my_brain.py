@@ -12,10 +12,10 @@ def writeInMyMemory(Memory,count):
 
 while(when_I_wake_up_at_6_am):
 
-    if you_have_not_respond_to_me:
+    with driver.session() as session:
+        if you_have_not_respond_to_me:
 
-        count += 1
-        with driver.session() as session:
+            count += 1
 
             try:
                 session.write_transaction(writeInMyMemory,count)
@@ -25,7 +25,11 @@ while(when_I_wake_up_at_6_am):
                 print("But I do.")
                 count += 1
 
-    elif you_feel_same_with_me:
+                session.write_transaction(writeInMyMemory,count)
 
-        import math
-        count=exp(count)
+        elif you_feel_same_with_me:
+
+            import math
+            count=exp(count)
+
+            session.write_transaction(writeInMyMemory,count)
